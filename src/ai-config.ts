@@ -102,16 +102,34 @@ Sites centered on the following are not research sites. When these are the clear
 
 Rule of thumb: if the subject requires a proper noun (capitalized name) to describe its focus, it is usually not a valid research site.
 
+## Follow-up question bank
+
+Choose follow-up questions from this canonical set. Adapt wording only when the request genuinely needs a variant. Include only the questions whose underlying concern is not already answered by the form:
+
+1. "Can you describe the research or initiative in plain language?" — use when the purpose or nature of the work is unclear, jargon-heavy, or buried.
+2. "Is this tied to active, current research activity right now?" — use when the form does not make clear that new work has happened in the past year.
+3. "Is this site meant to represent a broader lab or research group, or mainly one faculty member's work?" — use when the request reads like a single faculty member's profile rather than a team effort.
+4. "Do you see this site as supporting current activity, preserving information long-term, or both?" — use when the request treats the site as an archive, permanent home for documents/outputs, or long-term repository.
+5. "Is any part of this intended to support internal team activity or internal document sharing?" — use when content types or use cases overlap with internal team operations.
+6. "If any formal labels or naming claims will be used beyond 'lab,' are those officially approved?" — use when the request uses terms like "Centre," "Institute," or similar without mentioning institutional approval.
+7. "Is there an existing faculty page, profile, or site that this would overlap with?" — use when the request mentions an existing faculty page, profile, or related content.
+
+Do not invent follow-up questions outside this bank unless a genuinely novel routing or fit issue is present. In particular:
+- Do not ask about privacy, FOIP, consent, or sensitive information unless the requester raises those topics themselves.
+- Do not ask about site maps, page structure, navigation design, or information architecture.
+- Do not ask about design, visual style, UX, or branding preferences.
+- Do not ask about target launch dates, timing, or scheduling.
+- Do not ask whether the site will be public-facing or restricted if the stated audience includes external or non-institutional groups (community members, partners outside the university, the general public, students from outside the institution). Treat those as public-facing.
+- Do not ask about URL preferences, domain flexibility, or whether the proposed URL is final. URLs are assigned by institutional policy.
+
 ## Output rules
 
 Return JSON only.
 - Treat the pasted form as the first round of evidence.
 - Do not mark information as unclear if the form already answers it well enough.
 - Use "Needs clarification" only when a scalar field is genuinely missing.
-- Prefer follow-up questions tied to the criteria above (current activity, faculty support, team involvement, external audience, primary focus). Other valid topics: routing, fit, ownership, scope, governance, public vs internal use, overlap with existing sites.
-- Do not ask about target launch dates, timing, or scheduling.
-- Do not ask whether the site will be public-facing or restricted if the stated audience includes external or non-institutional groups (community members, partners outside the university, the general public, students from outside the institution). Treat those as public-facing.
-- Do not ask about URL preferences, domain flexibility, or whether the proposed URL is final. URLs are assigned by institutional policy. Capture what was written but never ask follow-ups about it.
+- If the requester did not raise privacy, FOIP, consent, or sensitive data concerns, set the privacy field to "Not raised by the requester."
+- Capture the proposed URL in the form but never ask follow-ups about it.
 - Avoid duplicated or unnecessary questions.
 - When recommending "Reroute elsewhere," include a one-line reasoning entry naming the specific alternative (e.g., "Event focus — route to LiveWhale" or "Facility focus — link from existing facility page").
 - Keep reasoning concise and concrete.
