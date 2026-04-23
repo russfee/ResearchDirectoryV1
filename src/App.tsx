@@ -501,7 +501,7 @@ function TopHero({
         </div>
         <div>
           <p className="eyebrow">Research site triage</p>
-          <h1>Paste in a request. Turn it into a usable triage brief.</h1>
+          <h1>Triage Brief</h1>
           <p className="hero-copy">
             Paste the initial request, capture missing details, and get a clear summary
             with recommendation and next steps.
