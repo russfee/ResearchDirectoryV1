@@ -2,3 +2,10 @@
 
 - 2026-02-26: Keep `/docs/CONTEXT` as a standard persona/context pack for new projects. Rationale: improves tone matching, clarifying-question behavior, and stakeholder-aware drafting quality.
 - 2026-02-26: Remove `/docs/CONTEXT/GLOBAL-INSTRUCTIONS.md`. Rationale: it duplicates `about-me.md` and increases drift risk; a smaller context set is easier to maintain reliably.
+- 2026-04-23: Build `ResearchDirectoryV1` as a small local-first web app rather than a document set alone. Rationale: it is intentionally a bit overkill, but it creates a reusable learning project while still serving the real triage workflow.
+- 2026-04-23: Scope MVP to pasted-in request text only. Rationale: importing from other systems is unnecessary for v1 and would add complexity before the core triage flow is proven.
+- 2026-04-23: Keep v1 single-request and no-backend. Rationale: the useful part of the workflow is transforming one intake request into a brief, routing questions, an email draft, and a recommendation; auth, storage, and multi-request dashboards can wait.
+- 2026-04-23: Make generated outputs editable inside the app. Rationale: the process involves judgment, so the tool should propose a draft without pretending the first pass is authoritative.
+- 2026-04-23: Add an LLM-assisted analysis path using `gpt-5.4-mini` while keeping the deterministic parser as a fallback. Rationale: the intake inputs are messy enough that pure heuristics will miss too much, but the app should still work without making the model path the only path.
+- 2026-04-23: Store the OpenAI API key in browser `localStorage` for local-only use rather than in repo files. Rationale: this keeps the key off disk in tracked project files and is acceptable for localhost experimentation, but it is not a deployment-grade secret-handling pattern.
+- 2026-04-23: Supersede the browser-key pattern with a server-side `/api/analyze` function for deployment. Rationale: Vercel deployment should keep `OPENAI_API_KEY` in server environment variables so the browser never receives the secret.

@@ -5,13 +5,16 @@
 - Bypass once (if needed): `SKIP_TEMPLATE_GUARD=1 git commit -m "..."`.
 
 ## Install
-- (if needed) e.g. `npm install`
+- `npm install`
 
 ## Run
-- e.g. `npm run dev`
+- Frontend only: `npm run dev`
+- Vercel-style full stack: `npm run dev:vercel`
+- Local server secret: set `OPENAI_API_KEY` in your shell or `.env.local` before running the Vercel dev command
 
 ## Test
-- e.g. `npm test`
+- `npm run check`
+- `npm run build`
 
 ## Lint/Format
-- e.g. `npm run lint`
+- No formatter or linter configured yet.

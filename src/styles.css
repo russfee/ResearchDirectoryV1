@@ -1,0 +1,396 @@
+:root {
+  color-scheme: light;
+  --bg: #f5ede2;
+  --panel: rgba(255, 251, 245, 0.82);
+  --panel-strong: rgba(255, 248, 239, 0.96);
+  --text: #1f2a2e;
+  --muted: #5e6b6f;
+  --line: rgba(31, 42, 46, 0.12);
+  --accent: #d36b37;
+  --accent-strong: #9b4f2c;
+  --teal: #1f6d6b;
+  --shadow: 0 28px 60px rgba(51, 45, 34, 0.14);
+  font-family: "Avenir Next", "Segoe UI", sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  color: var(--text);
+  background:
+    radial-gradient(circle at top left, rgba(211, 107, 55, 0.18), transparent 32%),
+    radial-gradient(circle at top right, rgba(31, 109, 107, 0.2), transparent 28%),
+    linear-gradient(180deg, #efe4d7 0%, #f8f1e8 100%);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  color: var(--text);
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+textarea,
+input,
+select {
+  width: 100%;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.72);
+  color: var(--text);
+  padding: 0.9rem 1rem;
+  transition: border-color 160ms ease, transform 160ms ease, box-shadow 160ms ease;
+}
+
+textarea:focus,
+input:focus,
+select:focus {
+  outline: none;
+  border-color: rgba(31, 109, 107, 0.55);
+  box-shadow: 0 0 0 4px rgba(31, 109, 107, 0.12);
+}
+
+#root {
+  min-height: 100vh;
+}
+
+.app-shell {
+  position: relative;
+  max-width: 1500px;
+  margin: 0 auto;
+  padding: 3rem 1.25rem 4rem;
+}
+
+.page-glow {
+  position: fixed;
+  inset: auto;
+  width: 24rem;
+  height: 24rem;
+  filter: blur(42px);
+  opacity: 0.38;
+  pointer-events: none;
+}
+
+.page-glow-left {
+  top: -8rem;
+  left: -10rem;
+  background: rgba(211, 107, 55, 0.28);
+}
+
+.page-glow-right {
+  top: 10rem;
+  right: -10rem;
+  background: rgba(31, 109, 107, 0.24);
+}
+
+.hero {
+  position: relative;
+  padding: 1rem 0 2rem;
+}
+
+.eyebrow,
+h1,
+h2 {
+  font-family: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Palatino, serif;
+}
+
+.eyebrow {
+  margin: 0 0 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  font-size: 0.78rem;
+  color: var(--teal);
+}
+
+h1 {
+  margin: 0;
+  max-width: 12ch;
+  font-size: clamp(2.8rem, 6vw, 5.4rem);
+  line-height: 0.95;
+  letter-spacing: -0.04em;
+}
+
+.hero-copy {
+  max-width: 62rem;
+  margin: 1.2rem 0 0;
+  font-size: 1.05rem;
+  color: var(--muted);
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: minmax(280px, 420px) minmax(0, 1fr);
+  gap: 1.25rem;
+  align-items: start;
+}
+
+.workspace {
+  display: grid;
+  gap: 1.25rem;
+}
+
+.panel {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  border-radius: 28px;
+  padding: 1.35rem;
+  background: var(--panel);
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(14px);
+}
+
+.panel::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(140deg, rgba(255, 255, 255, 0.45), transparent 45%),
+    linear-gradient(320deg, rgba(31, 109, 107, 0.06), transparent 55%);
+  pointer-events: none;
+}
+
+.input-panel,
+.snapshot-panel {
+  background: var(--panel-strong);
+}
+
+.panel-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  align-items: start;
+  margin-bottom: 1rem;
+}
+
+.panel-header h2,
+.panel h2 {
+  margin: 0;
+  font-size: 1.4rem;
+}
+
+.panel-header p,
+.panel p,
+.section-copy,
+.helper-copy {
+  margin: 0.35rem 0 0;
+  color: var(--muted);
+}
+
+.big-textarea {
+  min-height: 31rem;
+  resize: vertical;
+}
+
+.button-row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.9rem;
+  margin-top: 1rem;
+}
+
+.button-row-meta {
+  margin-top: 0.75rem;
+}
+
+.primary-button,
+.secondary-button,
+.ghost-button {
+  border-radius: 999px;
+  border: 1px solid transparent;
+  padding: 0.78rem 1.15rem;
+  transition: transform 160ms ease, box-shadow 160ms ease, border-color 160ms ease,
+    background 160ms ease;
+}
+
+.primary-button {
+  background: linear-gradient(135deg, var(--accent) 0%, var(--accent-strong) 100%);
+  color: #fffaf5;
+  box-shadow: 0 16px 28px rgba(155, 79, 44, 0.25);
+}
+
+.secondary-button {
+  background: linear-gradient(135deg, var(--teal) 0%, #154e4d 100%);
+  color: #f5fcfb;
+  box-shadow: 0 16px 28px rgba(21, 78, 77, 0.22);
+}
+
+.primary-button:hover:not(:disabled),
+.secondary-button:hover:not(:disabled),
+.ghost-button:hover {
+  transform: translateY(-1px);
+}
+
+.primary-button:disabled,
+.secondary-button:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.ghost-button {
+  background: rgba(255, 255, 255, 0.6);
+  border-color: var(--line);
+  color: var(--text);
+}
+
+.compact-button {
+  padding-inline: 0.95rem;
+}
+
+.grid {
+  display: grid;
+  gap: 1rem;
+}
+
+.two-up,
+.two-panels {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.one-up {
+  margin-top: 1rem;
+}
+
+.field {
+  display: grid;
+  gap: 0.45rem;
+}
+
+.field span {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--teal);
+}
+
+.compact {
+  min-height: 6.3rem;
+}
+
+.list-textarea {
+  min-height: 15rem;
+  resize: vertical;
+}
+
+.settings-block {
+  margin-bottom: 1rem;
+  padding: 1rem;
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.48);
+}
+
+.inline-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto auto;
+  gap: 0.65rem;
+  align-items: center;
+}
+
+.status-copy {
+  color: var(--teal);
+}
+
+.export-textarea {
+  min-height: 25rem;
+  resize: vertical;
+  font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+  font-size: 0.92rem;
+}
+
+.pill-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+}
+
+.pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.45rem 0.8rem;
+  border-radius: 999px;
+  background: rgba(31, 42, 46, 0.06);
+  color: var(--text);
+  font-size: 0.88rem;
+}
+
+.pill.accent {
+  background: rgba(211, 107, 55, 0.14);
+  color: var(--accent-strong);
+}
+
+.signal-list {
+  margin: 0;
+  padding-left: 1.2rem;
+}
+
+.signal-list li + li {
+  margin-top: 0.65rem;
+}
+
+.empty-state {
+  min-height: 18rem;
+  display: grid;
+  place-content: center;
+}
+
+@media (max-width: 1100px) {
+  .layout {
+    grid-template-columns: 1fr;
+  }
+
+  .big-textarea {
+    min-height: 20rem;
+  }
+}
+
+@media (max-width: 760px) {
+  .app-shell {
+    padding: 1.2rem 0.75rem 2.5rem;
+  }
+
+  h1 {
+    max-width: none;
+    font-size: clamp(2.4rem, 12vw, 3.5rem);
+  }
+
+  .panel {
+    padding: 1rem;
+    border-radius: 22px;
+  }
+
+  .panel-header,
+  .button-row {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .inline-row {
+    grid-template-columns: 1fr;
+  }
+
+  .two-up,
+  .two-panels {
+    grid-template-columns: 1fr;
+  }
+
+  .export-textarea {
+    min-height: 18rem;
+  }
+}
