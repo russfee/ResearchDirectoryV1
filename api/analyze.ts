@@ -6,6 +6,7 @@ import {
   TRIAGE_SCHEMA,
 } from "../src/ai-config";
 
+export const config = { runtime: "edge" };
 export const maxDuration = 30;
 
 function jsonResponse(body: unknown, status = 200): Response {
