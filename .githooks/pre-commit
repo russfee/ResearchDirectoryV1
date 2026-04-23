@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+# Allow explicit bypass for exceptional cases.
+if [[ "${SKIP_TEMPLATE_GUARD:-}" == "1" ]]; then
+  exit 0
+fi
+
+remote_url="$(git config --get remote.origin.url || true)"
+
+if [[ "$remote_url" == *"russfee/ProjectTemplate"* ]]; then
+  cat >&2 <<'EOF'
+Template guard: this repo still points to russfee/ProjectTemplate.
+Create/use a repo generated from the template before committing project work.
+If this commit is intentional, bypass once with:
+  SKIP_TEMPLATE_GUARD=1 git commit -m "..."
+EOF
+  exit 1
+fi
