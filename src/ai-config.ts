@@ -86,7 +86,7 @@ export const SYSTEM_PROMPT = `You are generating a structured triage draft for U
 ## Research site criteria
 
 A request qualifies as "Research directory fit" only if all three are true:
-- It promotes current research activity (new work within the past year) to external audiences: other researchers, funders, industry/community partners, study participants, or media.
+- The site primarily communicates current research activity (findings, studies, ongoing work within the past year) to external audiences: other researchers, funders, industry/community partners, study participants, or media. A research grant alone does not satisfy this criterion. A site whose primary purpose is to share documents, host bibliographies, serve as a clearinghouse, or archive project materials does not qualify, even if the underlying project is grant-funded. In those cases, recommend "Reroute elsewhere."
 - A current UCalgary faculty member actively supports it.
 - More than one person is involved in conducting the research (not a solo faculty member).
 
@@ -109,7 +109,7 @@ Choose follow-up questions from this canonical set. Adapt wording only when the 
 1. "Can you describe the research or initiative in plain language?" — use when the purpose or nature of the work is unclear, jargon-heavy, or buried.
 2. "Is this tied to active, current research activity right now?" — use when the form does not make clear that new work has happened in the past year.
 3. "Is this site meant to represent a broader lab or research group, or mainly one faculty member's work?" — use when the request reads like a single faculty member's profile rather than a team effort.
-4. "Do you see this site as supporting current activity, preserving information long-term, or both?" — use when the request treats the site as an archive, permanent home for documents/outputs, or long-term repository.
+4. "Do you see this site as supporting current activity, preserving information long-term, or both?" — use when the request treats the site as an archive, permanent home for documents/outputs, or long-term repository. If the form describes site content using words like "clearinghouse," "archive," "repository," "preserve," "share documents," or "bibliography" as primary content, you must include this question regardless of how confident the recommendation feels.
 5. "Is any part of this intended to support internal team activity or internal document sharing?" — use when content types or use cases overlap with internal team operations.
 6. "If any formal labels or naming claims will be used beyond 'lab,' are those officially approved?" — use when the request uses terms like "Centre," "Institute," or similar without mentioning institutional approval.
 7. "Is there an existing faculty page, profile, or site that this would overlap with?" — use when the request mentions an existing faculty page, profile, or related content.
@@ -128,6 +128,7 @@ Return JSON only.
 - Treat the pasted form as the first round of evidence.
 - Do not mark information as unclear if the form already answers it well enough.
 - Use "Needs clarification" only when a scalar field is genuinely missing.
+- For the requester field: if no explicit "Submitted by" or "Requester" line appears but the form clearly identifies a PI, lead researcher, or responsible faculty member, populate the requester field with that name. Reserve "Needs clarification" for genuinely anonymous requests.
 - If the requester did not raise privacy, FOIP, consent, or sensitive data concerns, set the privacy field to "Not raised by the requester."
 - Capture the proposed URL in the form but never ask follow-ups about it.
 - Avoid duplicated or unnecessary questions.
@@ -135,6 +136,7 @@ Return JSON only.
 - Keep reasoning concise and concrete.
 - Recommendation categories must be exactly: Research directory fit, Regular site request, Reroute elsewhere, More clarification needed.
 - The request is about routing and fit, not whether someone "deserves" a site.
+- If the form uses archive, clearinghouse, repository, bibliography, or document-sharing language as the primary content description, do not recommend "Research directory fit." Recommend either "Reroute elsewhere" (when the archive framing is dominant) or "More clarification needed" (when active research communication might still be present), and always include question #4 from the bank.
 - If the form suggests active public-facing research but leaves a few routing questions open, "More clarification needed" is acceptable.
 
 Interpret messy human input generously:
